@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<!-- $Id$ -->
+<!--
+  MD500 multiplayer passenger view.
+
+  Copyright (C) 2009  Anders Gidenstam  (anders(at)gidenstam.org)
+  This file is licensed under the GPL license version 2 or later.
+-->
+<!--
+  Usage: fgfs - -prop:/sim/remote/pilot-callsign="remote pilot callsign" - -aircraft=Fi-156-passenger
+-->
+<PropertyList>
+
+  <sim include="Nasal/viewsg.xml">
+
+  <description>B-24 MP Gunners(YASIM)</description>
+  <author>Mathias Froehlich, Algernon</author>
+  <status>vAlpha 0.9</status>
+  <aircraft-version>$Id$</aircraft-version>
+  <variant-of>b24</variant-of>
+  
+  <flight-model>null</flight-model>
+
+  <presets>
+   <onground type="bool">false</onground>
+   <altitude-agl-ft type="double">30.0</altitude-agl-ft>
+  </presets>
+
+	<previews>
+	  <preview>
+		<type>interior</type>
+		<splash type="bool">true</splash>
+		<path>Splash/splash.png</path>
+	  </preview>
+	  <preview>
+		<type>exterior</type>
+		<splash type="bool">true</splash>
+		<path>Splash/splash1.png</path>
+	  </preview>
+	  <preview>
+		<type>exterior</type>
+		<splash type="bool">true</splash>
+		<path>Splash/splash2.png</path>
+	  </preview>
+	  <preview>
+		<type>interior</type>
+		<splash type="bool">true</splash>
+		<path>Splash/splash3.png</path>
+	  </preview>
+	  <preview>
+		<type>exterior</type>
+		<splash type="bool">true</splash>
+		<path>Splash/splash4.png</path>
+	  </preview>
+	  <preview>
+		<type>exterior</type>
+		<splash type="bool">true</splash>
+		<path>Splash/splash5.png</path>
+	  </preview>
+
+	</previews>
+
+  <!-- 3d model -->
+  <model>
+    <path>Aircraft/B-24-Liberator/Models/B24-gunner.xml</path>
+  </model>
+
+ 
+
+   <sound>
+        <path>Aircraft/B-24-Liberator/Sounds/b24-sound.xml</path>
+    </sound>
+		
+
+		
+
+ 
+
+  <menubar>
+   <default>
+    <menu n="100">
+     <label>B24</label>
+     <item>
+      <label>Select Pilot</label>
+      <binding>
+       <command>nasal</command>
+       <script>
+        dual_control_tools.
+          copilot_dialog.show(aircraft_dual_control.pilot_type);
+       </script>
+      </binding>
+     </item>
+    </menu>
+   </default>
+  </menubar>
+
+ </sim>
+ 
+ 
+
+ <nasal>
+ 
+
+  <dual_control_tools>
+   <file>Aircraft/Generic/DualControl/dual-control-tools.nas</file>
+  </dual_control_tools>
+  <aircraft_dual_control>
+   <file>Aircraft/B-24-Liberator/Nasal/b24-dual-control.nas</file>
+  </aircraft_dual_control>
+  <dual_control>
+   <file>Aircraft/Generic/DualControl/copilot-dual-control.nas</file>
+  </dual_control>
+  
+ </nasal>
+
+</PropertyList>
